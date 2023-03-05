@@ -1,0 +1,4 @@
+<div class="flex column gap-8 wrapper">
+  <input placeholder="Search" />
+  <app-node-preview (click)="addNode(node)" *ngFor="let node of nodes$ | async" [definition]="node"></app-node-preview>
+</div>

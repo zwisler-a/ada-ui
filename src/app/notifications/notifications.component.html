@@ -1,0 +1,3 @@
+<div class="notification-wrapper flex column gap-8">
+  <app-notification *ngFor="let notify of notifications$ | async" [notification]="notify"></app-notification>
+</div>

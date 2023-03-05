@@ -1,0 +1,18 @@
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.notification {
+  animation: fadeIn 0.2s;
+  width: 360px;
+  border-left: solid 4px black;
+  padding: 8px;
+  background: #ececec;
+  border-radius: 3px;
+}
+
+.notification.success {
+  border-left: solid 4px var(--color-success);
+  background: var(--color-success-light);
+}

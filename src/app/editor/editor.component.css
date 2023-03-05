@@ -1,0 +1,6 @@
+.toolbox {
+  height: 100%;
+  border-right: solid 1px var(--color-primary);
+  position: absolute;
+  background: white;
+}

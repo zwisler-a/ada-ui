@@ -1,0 +1,13 @@
+<main class="flex column">
+  <h1>Running</h1>
+  <div *ngFor="let network of runningNetworks$ | async">
+    <span>{{network.name}}</span>
+    <button (click)="stopNetwork(network)">Stop</button>
+  </div>
+  <h1>Stopped</h1>
+  <div class="flex center gap-8" *ngFor="let network of stoppedNetworks$ | async">
+    <span>{{network.name}}</span>
+    <button (click)="startNetwork(network)">Start</button>
+    <button [routerLink]="['editor', network.identifier]">Edit</button>
+  </div>
+</main>

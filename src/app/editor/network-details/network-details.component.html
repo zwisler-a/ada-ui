@@ -1,0 +1,11 @@
+<div *ngIf="(network$ | async) as network" class="flex column gap-8 wrapper">
+  Status: {{network.active ? 'Running' : 'Stopped'}}
+
+  <input placeholder="Name" [value]="network.name">
+  <input placeholder="Description" [value]="network.description">
+  <button (click)="saveNetwork()">Save</button>
+
+  <br>
+  <button >Start</button>
+  <button>Stop</button>
+</div>

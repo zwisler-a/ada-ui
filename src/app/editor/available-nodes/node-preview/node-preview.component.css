@@ -1,0 +1,7 @@
+
+.node-preview {
+  width: 100%;
+  box-sizing: border-box;
+  user-select: none;
+  cursor: pointer;
+}

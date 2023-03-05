@@ -1,0 +1,11 @@
+.wrapper {
+  max-width: 300px;
+  min-width: 300px;
+  padding: 16px 8px;
+  box-sizing: border-box;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+}

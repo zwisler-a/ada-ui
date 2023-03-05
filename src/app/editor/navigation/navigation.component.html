@@ -1,0 +1,14 @@
+<nav class="flex column center gap-4">
+  <button [routerLink]="['/']">
+    <span class="material-symbols-outlined">close</span>
+  </button>
+  <div class="separator"></div>
+  <button [routerLinkActive]="'active'" [routerLink]="['./details']">
+    <span class="material-symbols-outlined">info</span>
+  </button>
+  <button [routerLinkActive]="'active'" [routerLink]="['./available-nodes']">
+    <span class="material-symbols-outlined">line_start_circle</span>
+  </button>
+  <div class="separator"></div>
+
+</nav>
