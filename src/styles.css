@@ -1,1 +1,67 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  --color-primary: #264653;
+  --color-primary-light: #335a6c;
+  --color-success: #2a9d8f;
+  --color-success-light: #eef6fd;
+  --color-warn: #f4a261;
+  --color-error: #e76f51;
+}
+
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex.column {
+  flex-direction: column;
+}
+
+.flex.center {
+  align-items: center;
+}
+
+.flex.justify {
+  justify-items: center;
+}
+
+.flex.gap-2 {
+  gap: 2px;
+}
+
+.flex.gap-4 {
+  gap: 4px;
+}
+
+.flex.gap-8 {
+  gap: 8px;
+}
+
+.page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+button:hover {
+  background: var(--color-primary-light);
+}
+
+button {
+  background: var(--color-primary);
+  color: white;
+  border: solid 1px var(--color-primary);
+  padding: 4px 16px;
+  border-radius: 2px;
+  cursor: pointer;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}

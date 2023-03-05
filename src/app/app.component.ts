@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {OAuthService} from "angular-oauth2-oidc";
+import {authCodeFlowConfig} from "./auth.config";
+import {NotificationService} from "./notifications/notification.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ada-ui';
+  authenticated = false;
+
+  constructor(
+    private oauthService: OAuthService,
+    private notify: NotificationService
+  ) {
+    this.oauthService.configure(authCodeFlowConfig);
+    this.oauthService.loadDiscoveryDocumentAndLogin().then(() => {
+      this.oauthService.setupAutomaticSilentRefresh();
+    }).then(() => {
+      this.notify.display({title: 'Authentication', type: 'success', text: 'Authentication successful'});
+      this.authenticated = true;
+    });
+  }
+
 }

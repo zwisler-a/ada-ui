@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "generate:api": "npx openapi-typescript-codegen --input http://localhost:3000/swagger-json --output src/api --exportSchemas true --client angular"
   },
   "private": true,
   "dependencies": {
@@ -18,6 +19,7 @@
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
+    "angular-oauth2-oidc": "^15.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
