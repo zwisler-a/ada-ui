@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {OAuthModule} from "angular-oauth2-oidc";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {RouterModule} from "@angular/router";
 import {CoreService} from "../api";
@@ -15,6 +15,8 @@ import {NodePreviewComponent} from './editor/available-nodes/node-preview/node-p
 import {NavigationComponent} from './editor/navigation/navigation.component';
 import {NetworkDetailsComponent} from './editor/network-details/network-details.component';
 import {EditorService} from "./editor/editor.service";
+import {ErrorInterceptor} from "./services/error.interceptor";
+import {LibModule} from "./lib/lib.module";
 
 @NgModule({
   declarations: [
@@ -44,12 +46,14 @@ import {EditorService} from "./editor/editor.service";
         ]
       },
     ]),
-    NotificationsModule
+    NotificationsModule,
+    LibModule
   ],
   providers: [
     CoreService,
     NetworkService,
-    EditorService
+    EditorService,
+    {provide: HTTP_INTERCEPTORS, multi: true, useClass: ErrorInterceptor}
   ],
   bootstrap: [AppComponent]
 })

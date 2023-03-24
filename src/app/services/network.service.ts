@@ -2,14 +2,15 @@ import {Injectable} from "@angular/core";
 import {map, mergeMap} from "rxjs/operators";
 import {CoreService, NetworkDto} from "../../api";
 import {NotificationService} from "../notifications/notification.service";
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, shareReplay} from "rxjs";
 
 @Injectable()
 export class NetworkService {
 
   reloadNetworks$ = new BehaviorSubject(null);
   networks$ = this.reloadNetworks$.pipe(
-    mergeMap(() => this.coreService.getAllNetworks())
+    mergeMap(() => this.coreService.getAllNetworks()),
+    shareReplay(1)
   )
 
   runningNetworks$ = this.networks$.pipe(map(networks => networks.filter(nw => nw.active)));

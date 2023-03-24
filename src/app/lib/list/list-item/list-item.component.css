@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.ada-list.spacer {
+  flex: 1 1 auto;
+}

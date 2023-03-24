@@ -1,0 +1,13 @@
+.ada-list {
+  display: flex;
+  flex-direction: column;
+}
+
+app-list-item:last-child {
+  border: none;
+}
+
+app-list-item {
+  border-bottom: solid 1px #cccccc;
+  padding: 4px;
+}
