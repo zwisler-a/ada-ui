@@ -14,7 +14,7 @@ export class ConnectorService {
     constructor(public readonly http: HttpClient) {}
 
     /**
-     * @returns any
+     * @returns any 
      * @throws ApiError
      */
     public getAllConnectors(): Observable<any> {

@@ -1,15 +1,6 @@
 import {Injectable} from "@angular/core";
-import {
-  BehaviorSubject,
-  filter,
-  firstValueFrom,
-  mergeMap,
-  Observable,
-  OperatorFunction,
-  shareReplay,
-  Subject
-} from "rxjs";
-import {CoreService, NetworkDto, NodeDefinitionDto} from "../../api";
+import {BehaviorSubject, filter, firstValueFrom, mergeMap, Observable, OperatorFunction, shareReplay} from "rxjs";
+import {CoreService, NetworkDto, NodeDefinitionDto, NodeInstanceDto} from "../../api";
 import {map} from "rxjs/operators";
 import {NetworkService} from "../services/network.service";
 import {NotificationService} from "../notifications/notification.service";
@@ -18,12 +9,11 @@ import {Camera} from "./renderer/camera";
 
 @Injectable()
 export class EditorService {
-  private loadNetwork$ = new Subject<String>();
+  private loadNetwork$ = new BehaviorSubject<string | null>(null);
   private updateNetwork$ = new BehaviorSubject<NetworkDto | null>(null);
   network$: Observable<NetworkDto> = this.loadNetwork$.pipe(
-    mergeMap(id => this.networkService.networks$.pipe(
-      map(networks => networks.find(network => network.identifier === id)),
-    )),
+    filter(nw => !!nw) as OperatorFunction<string | null, string>,
+    mergeMap(id => this.networkService.fetchNetwork(id)),
     filter(nw => !!nw) as OperatorFunction<NetworkDto | undefined, NetworkDto>,
     mergeMap((ldn) => this.updateNetwork$.pipe(map(updn => updn ? updn : ldn))),
     shareReplay(1)
@@ -65,6 +55,12 @@ export class EditorService {
   }
 
   updateNetwork(network: NetworkDto) {
+    this.updateNetwork$.next(network);
+  }
+
+  async deleteNode(toDelete: NodeInstanceDto) {
+    const network = await firstValueFrom(this.network$);
+    network.nodes = network.nodes.filter(node => node.identifier !== toDelete.identifier)
     this.updateNetwork$.next(network);
   }
 }

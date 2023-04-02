@@ -35,4 +35,7 @@ export class MasterTool extends Tool {
     ev.preventDefault();
   }
 
+  cleanup() {
+
+  }
 }

@@ -9,4 +9,3 @@ export type NodeAttributeDto = {
     definitionId: string;
     value: any;
 };
-

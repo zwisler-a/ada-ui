@@ -10,4 +10,3 @@ export type NodeOutputInstanceDto = {
     description: string;
     definition: NodeOutputDefinitionDto;
 };
-

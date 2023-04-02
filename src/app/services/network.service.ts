@@ -34,4 +34,8 @@ export class NetworkService {
       this.reloadNetworks$.next(null);
     })
   }
+
+  fetchNetwork(id: string) {
+    return this.coreService.getNetwork(id);
+  }
 }

@@ -7,4 +7,3 @@ export type NodeAttributeDefinitionDto = {
     name: string;
     description: string;
 };
-

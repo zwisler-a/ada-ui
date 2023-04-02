@@ -32,4 +32,10 @@ export abstract class Tool {
 
   abstract onContextMenu(ev: MouseEvent): Promise<void>;
 
+  selected() {
+  };
+
+  deselected() {
+  }
+
 }

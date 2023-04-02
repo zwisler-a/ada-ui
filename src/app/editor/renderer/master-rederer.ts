@@ -38,4 +38,8 @@ export class MasterRenderer {
       this.postProcessManipulations.next(this.ctx);
     });
   }
+
+  cleanup() {
+
+  }
 }

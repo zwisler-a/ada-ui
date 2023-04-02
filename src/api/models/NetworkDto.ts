@@ -13,4 +13,3 @@ export type NetworkDto = {
     nodes: Array<NodeInstanceDto>;
     edges: Array<EdgeDto>;
 };
-

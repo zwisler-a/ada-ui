@@ -1,4 +1,9 @@
 <div *ngIf="(network$ | async) as network" class="flex column gap-8 wrapper">
+  <button [routerLink]="['..']"><span class="material-symbols-outlined">close</span></button>
+
+  <router-outlet></router-outlet>
+
+  <hr />
   Status: {{network.active ? 'Running' : 'Stopped'}}
 
   <input placeholder="Name" [value]="network.name">

@@ -14,4 +14,3 @@ export type NodeDefinitionDto = {
     outputs: Array<NodeOutputDefinitionDto>;
     attributes: Array<NodeAttributeDefinitionDto>;
 };
-

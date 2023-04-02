@@ -1,14 +1,8 @@
 <nav class="flex column center gap-4">
-  <button [routerLink]="['/']">
-    <span class="material-symbols-outlined">close</span>
-  </button>
+  <app-nav-button [routerLink]="['/']" icon="close"/>
   <div class="separator"></div>
-  <button [routerLinkActive]="'active'" [routerLink]="['./details']">
-    <span class="material-symbols-outlined">info</span>
-  </button>
-  <button [routerLinkActive]="'active'" [routerLink]="['./available-nodes']">
-    <span class="material-symbols-outlined">line_start_circle</span>
-  </button>
+  <app-nav-button [routerLinkActive]="'active'" [routerLink]="['./details']" icon="info"/>
+  <app-nav-button [routerLinkActive]="'active'" [routerLink]="['./available-nodes']" icon="line_start_circle"/>
   <div class="separator"></div>
-
+  <ng-content></ng-content>
 </nav>

@@ -1,6 +1,10 @@
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .notification {
@@ -15,4 +19,14 @@
 .notification.success {
   border-left: solid 4px var(--color-success);
   background: var(--color-success-light);
+}
+
+.notification.failure {
+  border-left: solid 4px var(--color-error);
+  background: var(--color-error-light);
+}
+
+.notification.failure {
+  border-left: solid 4px var(--color-warn);
+  background: var(--color-warn-light);
 }

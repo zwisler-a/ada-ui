@@ -7,4 +7,3 @@ export type NodeInputDefinitionDto = {
     name: string;
     description: string;
 };
-

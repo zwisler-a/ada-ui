@@ -17,6 +17,8 @@ import {NetworkDetailsComponent} from './editor/network-details/network-details.
 import {EditorService} from "./editor/editor.service";
 import {ErrorInterceptor} from "./services/error.interceptor";
 import {LibModule} from "./lib/lib.module";
+import {NodeDetailsComponent} from './editor/node-details/node-details.component';
+import {NavComponent} from "./lib/nav/nav.component";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import {LibModule} from "./lib/lib.module";
     AvailableNodesComponent,
     NodePreviewComponent,
     NavigationComponent,
-    NetworkDetailsComponent
+    NetworkDetailsComponent,
+    NodeDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -37,14 +40,24 @@ import {LibModule} from "./lib/lib.module";
       }
     }),
     RouterModule.forRoot([
-      {path: '', component: DashboardComponent},
+      {
+        path: '', component: NavComponent, children: [
+          {path: '', component: DashboardComponent},
+          {path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule)}
+        ]
+      },
       {
         path: 'editor/:id', component: EditorComponent,
         children: [
           {path: 'available-nodes', component: AvailableNodesComponent},
-          {path: 'details', component: NetworkDetailsComponent}
+          {
+            path: 'details', component: NetworkDetailsComponent, children: [
+              {path: 'node/:id', component: NodeDetailsComponent}
+            ]
+          }
         ]
       },
+
     ]),
     NotificationsModule,
     LibModule

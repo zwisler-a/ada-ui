@@ -28,6 +28,5 @@ export { $NodeInstanceDto } from './schemas/$NodeInstanceDto';
 export { $NodeOutputDefinitionDto } from './schemas/$NodeOutputDefinitionDto';
 export { $NodeOutputInstanceDto } from './schemas/$NodeOutputInstanceDto';
 
-export { AuthenticationService } from './services/AuthenticationService';
 export { ConnectorService } from './services/ConnectorService';
 export { CoreService } from './services/CoreService';

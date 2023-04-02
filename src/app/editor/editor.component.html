@@ -1,6 +1,9 @@
 <div class="page flex">
   <div class="toolbox flex">
-    <app-navigation></app-navigation>
+    <app-navigation>
+      <app-nav-button icon="left_click" />
+      <app-nav-button icon="delete" />
+    </app-navigation>
     <router-outlet></router-outlet>
   </div>
   <canvas #canvas></canvas>

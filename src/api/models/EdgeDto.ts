@@ -11,4 +11,3 @@ export type EdgeDto = {
     inputIdentifier: string;
     outputIdentifier: string;
 };
-

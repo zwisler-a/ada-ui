@@ -17,7 +17,7 @@ export class CoreService {
     constructor(public readonly http: HttpClient) {}
 
     /**
-     * @returns NodeDefinitionDto
+     * @returns NodeDefinitionDto 
      * @throws ApiError
      */
     public getAvailableNodes(): Observable<Array<NodeDefinitionDto>> {
@@ -28,7 +28,7 @@ export class CoreService {
     }
 
     /**
-     * @returns NetworkDto
+     * @returns NetworkDto 
      * @throws ApiError
      */
     public getAllNetworks(): Observable<Array<NetworkDto>> {
@@ -39,13 +39,13 @@ export class CoreService {
     }
 
     /**
-     * @param requestBody
-     * @returns any
+     * @param requestBody 
+     * @returns any 
      * @throws ApiError
      */
     public saveNetwork(
-        requestBody: NetworkDto,
-    ): Observable<any> {
+requestBody: NetworkDto,
+): Observable<any> {
         return __request(OpenAPI, this.http, {
             method: 'POST',
             url: '/core/network',
@@ -55,13 +55,30 @@ export class CoreService {
     }
 
     /**
-     * @param identifier
-     * @returns any
+     * @param id 
+     * @returns NetworkDto 
+     * @throws ApiError
+     */
+    public getNetwork(
+id: string,
+): Observable<NetworkDto> {
+        return __request(OpenAPI, this.http, {
+            method: 'GET',
+            url: '/core/network/{id}',
+            path: {
+                'id': id,
+            },
+        });
+    }
+
+    /**
+     * @param identifier 
+     * @returns any 
      * @throws ApiError
      */
     public deleteNetwork(
-        identifier: string,
-    ): Observable<any> {
+identifier: string,
+): Observable<any> {
         return __request(OpenAPI, this.http, {
             method: 'DELETE',
             url: '/core/network/{identifier}',
@@ -72,13 +89,13 @@ export class CoreService {
     }
 
     /**
-     * @param networkId
-     * @returns any
+     * @param networkId 
+     * @returns any 
      * @throws ApiError
      */
     public startNetwork(
-        networkId: string,
-    ): Observable<any> {
+networkId: string,
+): Observable<any> {
         return __request(OpenAPI, this.http, {
             method: 'POST',
             url: '/core/network/start/{networkId}',
@@ -89,13 +106,13 @@ export class CoreService {
     }
 
     /**
-     * @param networkId
-     * @returns any
+     * @param networkId 
+     * @returns any 
      * @throws ApiError
      */
     public stopNetwork(
-        networkId: string,
-    ): Observable<any> {
+networkId: string,
+): Observable<any> {
         return __request(OpenAPI, this.http, {
             method: 'POST',
             url: '/core/network/stop/{networkId}',
