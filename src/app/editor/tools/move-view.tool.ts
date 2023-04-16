@@ -3,6 +3,7 @@ import {Tool} from "./tool";
 export class MoveViewTool extends Tool {
   private draggingViewport = false;
 
+
   async onContextMenu(ev: MouseEvent) {
   }
 

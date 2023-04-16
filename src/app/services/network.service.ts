@@ -22,17 +22,25 @@ export class NetworkService {
 
 
   startNetwork(network: NetworkDto) {
-    this.coreService.startNetwork(network.identifier).subscribe(() => {
-      this.notify.display({title: 'Network', text: `Network ${network.name} started!`, type: 'success'});
-      this.reloadNetworks$.next(null);
+    return new Promise<void>(res => {
+      this.coreService.startNetwork(network.identifier).subscribe(() => {
+        this.notify.display({title: 'Network', text: `Network ${network.name} started!`, type: 'success'});
+        this.reloadNetworks$.next(null);
+        res();
+      })
     })
+
   }
 
   stopNetwork(network: NetworkDto) {
-    this.coreService.stopNetwork(network.identifier).subscribe(() => {
-      this.notify.display({title: 'Network', text: `Network ${network.name} stopped!`, type: 'success'});
-      this.reloadNetworks$.next(null);
+    return new Promise<void>(res => {
+      this.coreService.stopNetwork(network.identifier).subscribe(() => {
+        this.notify.display({title: 'Network', text: `Network ${network.name} stopped!`, type: 'success'});
+        this.reloadNetworks$.next(null);
+        res();
+      })
     })
+
   }
 
   fetchNetwork(id: string) {

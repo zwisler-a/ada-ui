@@ -1,16 +1,13 @@
 <div *ngIf="(network$ | async) as network" class="flex column gap-8 wrapper">
-  <button [routerLink]="['..']"><span class="material-symbols-outlined">close</span></button>
-
-  <router-outlet></router-outlet>
-
+  <app-nav-button [routerLink]="['..']" icon="close"/>
   <hr />
   Status: {{network.active ? 'Running' : 'Stopped'}}
 
-  <input placeholder="Name" [value]="network.name">
-  <input placeholder="Description" [value]="network.description">
+  <input placeholder="Name" [(ngModel)]="network.name">
+  <input placeholder="Description" [(ngModel)]="network.description">
   <button (click)="saveNetwork()">Save</button>
 
   <br>
-  <button >Start</button>
-  <button>Stop</button>
+  <button (click)="startNetwork()">Start</button>
+  <button (click)="stopNetwork()">Stop</button>
 </div>

@@ -1,1 +1,14 @@
-<p>node-details works!</p>
+<div *ngIf="node" class="flex column gap-8 wrapper">
+  <app-nav-button [routerLink]="['..', '..']" icon="close"/>
+  <input [(ngModel)]="node.name" />
+  <b *ngIf="node.inputs?.length">Inputs</b>
+  <div class="element" *ngFor="let input of node.inputs">{{input.name}}</div>
+  <b *ngIf="node.outputs?.length">Outputs</b>
+  <div class="element" *ngFor="let output of node.outputs">{{output.name}}</div>
+  <b *ngIf="node.attributes?.length">Attributes</b>
+  <div class="element" *ngFor="let attribute of node.attributes">
+    {{attribute.name}}
+    <input [placeholder]="attribute.name" [(ngModel)]="attribute.value"/>
+  </div>
+
+</div>

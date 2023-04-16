@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.box {
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.handler {
+  background: black;
+  height: 4px;
+  padding: 0;
+  cursor: ns-resize;
+  flex: 0 0 auto;
+}

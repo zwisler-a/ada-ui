@@ -7,4 +7,6 @@ import {Component, Input} from '@angular/core';
 })
 export class NavButtonComponent {
   @Input() icon?: string;
+  @Input() active?: boolean;
+  @Input() tooltip?: string;
 }

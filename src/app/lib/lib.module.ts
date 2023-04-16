@@ -5,6 +5,7 @@ import {ListItemComponent} from './list/list-item/list-item.component';
 import {NavComponent} from './nav/nav.component';
 import {RouterModule} from "@angular/router";
 import { NavButtonComponent } from './nav-button/nav-button.component';
+import { ResizeableContainerComponent } from './resizeable-container/resizeable-container.component';
 
 
 @NgModule({
@@ -12,9 +13,11 @@ import { NavButtonComponent } from './nav-button/nav-button.component';
     ListComponent,
     ListItemComponent,
     NavComponent,
-    NavButtonComponent
+    NavButtonComponent,
+    ResizeableContainerComponent
   ],
   exports: [
+    ResizeableContainerComponent,
     NavComponent,
     ListComponent,
     ListItemComponent,

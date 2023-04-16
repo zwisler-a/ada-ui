@@ -3,6 +3,9 @@ import {EditorService} from "../editor.service";
 import {firstValueFrom} from "rxjs";
 
 export abstract class Tool {
+  isActive: boolean = false;
+
+
   protected async getNode(ev: MouseEvent) {
     const network = await firstValueFrom(this.editorService.network$);
     return getClickedNode(
@@ -21,7 +24,7 @@ export abstract class Tool {
     );
   }
 
-  constructor(protected editorService: EditorService) {
+  constructor(protected editorService: EditorService, public readonly name: string) {
   }
 
   abstract onMouseDown(ev: MouseEvent): Promise<void>;

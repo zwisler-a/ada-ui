@@ -13,7 +13,8 @@
     <app-list-item *ngFor="let network of stoppedNetworks$ | async">
       <span>{{network.name}}</span>
       <button action (click)="startNetwork(network)">Start</button>
-      <button action [routerLink]="['editor', network.identifier]">Edit</button>
+      <button action [routerLink]="['/editor', network.identifier]">Edit</button>
     </app-list-item>
   </app-list>
+  <button (click)="createNewNetwork()">Create New</button>
 </main>

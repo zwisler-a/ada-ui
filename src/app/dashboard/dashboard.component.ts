@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
-import {NetworkDto} from "../../api";
+import {CoreService, NetworkDto} from "../../api";
 import {NetworkService} from "../services/network.service";
+import {uuidv4} from "../editor/util/util";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +14,7 @@ export class DashboardComponent {
   runningNetworks$ = this.networkService.runningNetworks$;
   stoppedNetworks$ = this.networkService.stoppedNetworks$;
 
-  constructor(private networkService: NetworkService) {
+  constructor(private networkService: NetworkService, private coreService: CoreService, private router: Router) {
 
   }
 
@@ -22,5 +24,21 @@ export class DashboardComponent {
 
   stopNetwork(network: NetworkDto) {
     this.networkService.stopNetwork(network);
+  }
+
+  createNewNetwork() {
+    const created = uuidv4();
+    this.coreService.saveNetwork({
+      identifier: created,
+      name: 'New Network',
+      description: '',
+      nodes: [],
+      edges: [],
+      active: false
+    }).subscribe(() => {
+        this.networkService.reloadNetworks$.next(null)
+        this.router.navigate(['/editor', created])
+      }
+    );
   }
 }

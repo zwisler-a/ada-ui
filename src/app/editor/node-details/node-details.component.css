@@ -1,0 +1,15 @@
+.element {
+  display: flex;
+  flex-direction: column;
+}
+
+b {
+  margin-top: 8px;
+  display: inline-block;
+}
+
+.wrapper {
+  padding: 16px 8px;
+  min-width: 300px;
+}
+

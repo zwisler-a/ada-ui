@@ -1,0 +1,4 @@
+<div (mousedown)="mouseDown($event)" class="handler"></div>
+<div class="box" [ngStyle]="{height:size, minHeight: size}">
+  <ng-content select="[side]"></ng-content>
+</div>

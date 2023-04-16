@@ -1,6 +1,6 @@
 import {Tool} from "./tool";
 
-export class DeleteTool extends Tool {
+export class DetailsTool extends Tool {
 
   override isActive = false;
 
@@ -10,7 +10,7 @@ export class DeleteTool extends Tool {
   async onMouseDown(ev: MouseEvent): Promise<void> {
     const node = await this.getNode(ev);
     if (node && this.isActive) {
-      await this.editorService.deleteNode(node);
+      await this.editorService.openDetails(node);
     }
   }
 

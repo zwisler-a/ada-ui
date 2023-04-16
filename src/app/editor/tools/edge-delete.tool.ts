@@ -1,6 +1,6 @@
 import {Tool} from "./tool";
 
-export class DeleteTool extends Tool {
+export class EdgeDeleteTool extends Tool {
 
   override isActive = false;
 
@@ -8,9 +8,9 @@ export class DeleteTool extends Tool {
   }
 
   async onMouseDown(ev: MouseEvent): Promise<void> {
-    const node = await this.getNode(ev);
+    const node = await this.getElement(ev);
     if (node && this.isActive) {
-      await this.editorService.deleteNode(node);
+      await this.editorService.removeEdge(node.node, node.element);
     }
   }
 

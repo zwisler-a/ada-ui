@@ -1,10 +1,18 @@
 <div class="page flex">
   <div class="toolbox flex">
     <app-navigation>
-      <app-nav-button icon="left_click" />
-      <app-nav-button icon="delete" />
+      <app-nav-button (click)="undo()" icon="undo"/>
+      <app-nav-button (click)="save()" icon="save"/>
+      <br />
+      <app-nav-button tooltip="Cursor" [active]="isActive('cursor')" (click)="selectTool('cursor')" icon="left_click"/>
+      <app-nav-button [active]="isActive('details')" (click)="selectTool('details')" icon="info"/>
+      <app-nav-button [active]="isActive('connect')" (click)="selectTool('connect')" icon="link"/>
+      <app-nav-button [active]="isActive('delete')" (click)="selectTool('delete')" icon="delete"/>
+      <app-nav-button [active]="isActive('delete-edge')" (click)="selectTool('delete-edge')" icon="delete_sweep"/>
+
     </app-navigation>
     <router-outlet></router-outlet>
   </div>
   <canvas #canvas></canvas>
 </div>
+<ng-template ></ng-template>

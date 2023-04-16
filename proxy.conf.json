@@ -1,0 +1,20 @@
+{
+  "/log": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "ws": true
+  },
+  "/socket.io": {
+    "target": "http://localhost:3000",
+    "secure": false,
+    "ws": true
+  },
+  "/core": {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
+  "/connectors": {
+    "target": "http://localhost:3000",
+    "secure": false
+  }
+}

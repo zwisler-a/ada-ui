@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {EditorService} from "../editor.service";
-import {tap} from "rxjs";
+import {firstValueFrom} from "rxjs";
+import {NetworkService} from "../../services/network.service";
 
 @Component({
   selector: 'app-network-details',
@@ -9,14 +10,27 @@ import {tap} from "rxjs";
 })
 export class NetworkDetailsComponent {
 
-  network$ = this.editorService.network$.pipe(tap(console.log));
+  network$ = this.editorService.network$;
 
-  constructor(private editorService: EditorService) {
+  constructor(private editorService: EditorService, private networkService: NetworkService) {
 
   }
 
 
-  saveNetwork() {
-    this.editorService.saveNetwork();
+  async saveNetwork() {
+    await this.editorService.saveNetwork();
   }
+
+  async startNetwork() {
+    const network = await firstValueFrom(this.editorService.network$);
+    await this.networkService.startNetwork(network);
+    this.editorService.loadNetwork(network.identifier);
+  }
+
+  async stopNetwork() {
+    const network = await firstValueFrom(this.editorService.network$);
+    await this.networkService.stopNetwork(network);
+    this.editorService.loadNetwork(network.identifier);
+  }
+
 }

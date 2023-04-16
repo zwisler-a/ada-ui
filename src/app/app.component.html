@@ -5,3 +5,6 @@
   Authenticating ....
 </ng-template>
 <app-notifications></app-notifications>
+<app-resizeable-container *ngIf="showConsole">
+  <app-log-view side></app-log-view>
+</app-resizeable-container>

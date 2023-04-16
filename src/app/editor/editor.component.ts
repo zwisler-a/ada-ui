@@ -36,8 +36,24 @@ export class EditorComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if(this.renderSubscription) this.renderSubscription.unsubscribe();
+    if (this.renderSubscription) this.renderSubscription.unsubscribe();
     this.masterRenderer.cleanup();
     this.masterTool.cleanup();
+  }
+
+  selectTool(tool: string) {
+    this.masterTool.select(tool);
+  }
+
+  undo() {
+    this.editorService.undo();
+  }
+
+  async save() {
+    await this.editorService.saveNetwork();
+  }
+
+  isActive(tool: string) {
+    return this.masterTool?.toolIsActive(tool) ?? false;
   }
 }
