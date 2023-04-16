@@ -1,0 +1,4 @@
+{
+  "CORE_URL": "http://localhost:3000/",
+  "AUTH_URL": "http://auth.ui.localhost/"
+}

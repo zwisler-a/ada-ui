@@ -3,9 +3,10 @@ import {CommonModule} from '@angular/common';
 import {SocketIoConfig, SocketIoModule} from "ngx-socket-io";
 import {LogSocketService} from "./log-socket.service";
 import {LogViewComponent} from './log-view/log-view.component';
+import {OpenAPI} from "../../api";
 
 
-const config: SocketIoConfig = {url: window.origin, options: {}};
+const config: SocketIoConfig = {url: OpenAPI.BASE, options: {}};
 
 @NgModule({
   declarations: [

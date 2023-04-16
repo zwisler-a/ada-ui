@@ -1,8 +1,9 @@
 import {AuthConfig} from 'angular-oauth2-oidc';
+import {OpenAPI} from "../auth-api";
 
 export const authCodeFlowConfig: AuthConfig = {
   // Url of the Identity Provider
-  issuer: `${window.location.protocol}//auth.${window.location.host}/`,
+  issuer: OpenAPI.BASE,
   requireHttps: false,
   // URL of the SPA to redirect the user to after login
   redirectUri: window.location.origin + '/',
