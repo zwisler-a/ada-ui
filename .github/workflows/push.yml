@@ -41,3 +41,11 @@ jobs:
           webhook_url: ${{ secrets.WEBHOOK_URL }}
           webhook_auth: ${{ secrets.WEBHOOK_CRED }}
           data: '{ "service": "${{ secrets.WEBHOOK_SERVICE }}" }'
+
+      - name: Invoke deployment hook
+        uses: distributhor/workflow-webhook@v3
+        if: github.ref == 'refs/heads/master'
+        env:
+          webhook_url: ${{ secrets.WEBHOOK_URL }}
+          webhook_auth: ${{ secrets.WEBHOOK_CRED }}
+          data: '{ "service": "${{ secrets.WEBHOOK_SERVICE }}" }'

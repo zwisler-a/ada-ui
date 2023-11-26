@@ -1,0 +1,6 @@
+<div *ngFor="let tool of tools" class="tool" (click)="selectTool(tool.name)" [ngClass]="{'active': isActive(tool.name)}"
+     [appTooltip]="tool.tooltip">
+  <span class="material-symbols-outlined">
+    {{tool.icon}}
+  </span>
+</div>

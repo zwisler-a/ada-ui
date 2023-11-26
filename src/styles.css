@@ -89,3 +89,25 @@ input:focus {
   border-bottom: solid 2px #000000;
   margin-bottom: 0;
 }
+
+.tooltip {
+  position: absolute;
+  padding: 8px 12px;
+  color: white;
+  background-color: black;
+  border-radius: 4px;
+  font-size: 14px;
+  z-index: 1000;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

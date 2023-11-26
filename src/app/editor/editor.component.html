@@ -3,14 +3,9 @@
     <app-navigation>
       <app-nav-button (click)="undo()" icon="undo"/>
       <app-nav-button (click)="save()" icon="save"/>
-      <br />
-      <app-nav-button tooltip="Cursor" [active]="isActive('cursor')" (click)="selectTool('cursor')" icon="left_click"/>
-      <app-nav-button [active]="isActive('details')" (click)="selectTool('details')" icon="info"/>
-      <app-nav-button [active]="isActive('connect')" (click)="selectTool('connect')" icon="link"/>
-      <app-nav-button [active]="isActive('delete')" (click)="selectTool('delete')" icon="delete"/>
-      <app-nav-button [active]="isActive('delete-edge')" (click)="selectTool('delete-edge')" icon="delete_sweep"/>
-
+      <app-nav-button (click)="export()" icon="download"/>
     </app-navigation>
+    <app-tool-bar [masterTool]="masterTool"></app-tool-bar>
     <router-outlet></router-outlet>
   </div>
   <canvas #canvas></canvas>

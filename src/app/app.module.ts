@@ -21,6 +21,7 @@ import {NodeDetailsComponent} from './editor/node-details/node-details.component
 import {NavComponent} from "./lib/nav/nav.component";
 import {FormsModule} from "@angular/forms";
 import {LogModule} from "./log/log.module";
+import { ToolBarComponent } from './editor/tool-bar/tool-bar.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {LogModule} from "./log/log.module";
     NodePreviewComponent,
     NavigationComponent,
     NetworkDetailsComponent,
-    NodeDetailsComponent
+    NodeDetailsComponent,
+    ToolBarComponent
   ],
   imports: [
     FormsModule,

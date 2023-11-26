@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
 import {MasterRenderer} from "./renderer/master-rederer";
 import {ActivatedRoute} from "@angular/router";
-import {combineLatest, Subscription} from "rxjs";
+import {combineLatest, firstValueFrom, Subscription} from "rxjs";
 import {EditorService} from "./editor.service";
 import {MasterTool} from "./tools/master.tool";
 import {Logger} from "../log/logger";
@@ -16,7 +16,7 @@ export class EditorComponent implements AfterViewInit, OnDestroy {
 
 
   private masterRenderer!: MasterRenderer;
-  private masterTool!: MasterTool;
+  masterTool!: MasterTool;
   private renderSubscription!: Subscription;
 
   constructor(private editorService: EditorService, private activeRoute: ActivatedRoute) {
@@ -53,7 +53,14 @@ export class EditorComponent implements AfterViewInit, OnDestroy {
     await this.editorService.saveNetwork();
   }
 
-  isActive(tool: string) {
-    return this.masterTool?.toolIsActive(tool) ?? false;
+  async export() {
+    const network = await firstValueFrom(this.editorService.network$);
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(network));
+    const downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href", dataStr);
+    downloadAnchorNode.setAttribute("download", network.name + ".json");
+    document.body.appendChild(downloadAnchorNode);
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
   }
 }

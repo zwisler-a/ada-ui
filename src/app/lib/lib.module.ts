@@ -4,8 +4,9 @@ import {ListComponent} from './list/list.component';
 import {ListItemComponent} from './list/list-item/list-item.component';
 import {NavComponent} from './nav/nav.component';
 import {RouterModule} from "@angular/router";
-import { NavButtonComponent } from './nav-button/nav-button.component';
-import { ResizeableContainerComponent } from './resizeable-container/resizeable-container.component';
+import {NavButtonComponent} from './nav-button/nav-button.component';
+import {ResizeableContainerComponent} from './resizeable-container/resizeable-container.component';
+import {TooltipDirective} from "./tooltip/tooltip.directive";
 
 
 @NgModule({
@@ -14,14 +15,16 @@ import { ResizeableContainerComponent } from './resizeable-container/resizeable-
     ListItemComponent,
     NavComponent,
     NavButtonComponent,
-    ResizeableContainerComponent
+    ResizeableContainerComponent,
+    TooltipDirective
   ],
   exports: [
     ResizeableContainerComponent,
     NavComponent,
     ListComponent,
     ListItemComponent,
-    NavButtonComponent
+    NavButtonComponent,
+    TooltipDirective
   ],
   imports: [
     RouterModule,

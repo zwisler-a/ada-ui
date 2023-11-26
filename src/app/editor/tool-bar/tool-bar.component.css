@@ -1,0 +1,29 @@
+:host {
+  position: fixed;
+  display: flex;
+  gap: 16px;
+  padding: 4px 16px;
+  background: white;
+  top: 8px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.tool:hover {
+  background: lightgray;
+}
+.tool {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+.tool.active {
+  background: lightgray;
+}

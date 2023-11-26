@@ -8,6 +8,8 @@ RUN npm run build
 
 FROM nginx:latest
 
+COPY default.conf /etc/nginx/conf.d/default.conf
+
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 COPY --from=build /usr/local/app/dist/ada-ui /usr/share/nginx/html

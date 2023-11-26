@@ -1,4 +1,4 @@
 {
   "CORE_URL": "http://localhost:3000/",
-  "AUTH_URL": "http://auth.ui.localhost/"
+  "AUTH_URL": "https://auth.zwisler.dev/"
 }
