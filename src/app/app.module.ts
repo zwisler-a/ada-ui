@@ -22,6 +22,7 @@ import {NavComponent} from "./lib/nav/nav.component";
 import {FormsModule} from "@angular/forms";
 import {LogModule} from "./log/log.module";
 import { ToolBarComponent } from './editor/tool-bar/tool-bar.component';
+import { NetworkPanelComponent } from './dashboard/network-panel/network-panel.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ToolBarComponent } from './editor/tool-bar/tool-bar.component';
     NavigationComponent,
     NetworkDetailsComponent,
     NodeDetailsComponent,
-    ToolBarComponent
+    ToolBarComponent,
+    NetworkPanelComponent
   ],
   imports: [
     FormsModule,

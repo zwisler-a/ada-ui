@@ -1,0 +1,9 @@
+<div [ngClass]="{'active':network.active, 'stopped':!network.active}" class="panel" *ngIf="network">
+  <span>{{network.name}}</span>
+  <small>{{network.description}}</small>
+  <span class="spacer"></span>
+  <button (click)="start(network)" *ngIf="!network.active">Start</button>
+  <button (click)="stop(network)" *ngIf="network.active">Stop</button>
+  <button [routerLink]="['/editor', network.identifier]">Edit</button>
+</div>
+

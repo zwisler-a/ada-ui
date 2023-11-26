@@ -11,8 +11,7 @@ import {Router} from "@angular/router";
 })
 export class DashboardComponent {
 
-  runningNetworks$ = this.networkService.runningNetworks$;
-  stoppedNetworks$ = this.networkService.stoppedNetworks$;
+  networks$ = this.networkService.networks$;
 
   constructor(private networkService: NetworkService, private coreService: CoreService, private router: Router) {
 

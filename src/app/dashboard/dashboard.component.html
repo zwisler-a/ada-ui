@@ -1,20 +1,7 @@
-<main class="flex column">
-  <h1>Running</h1>
-  <app-list>
-    <app-list-item *ngFor="let network of runningNetworks$ | async">
-      <span>{{network.name}}</span>
-      <button action (click)="stopNetwork(network)">Stop</button>
-    </app-list-item>
-  </app-list>
-  <div>
+<main class="flex column gap-2">
+  <h1>Networks</h1>
+  <app-network-panel *ngFor="let network of networks$ | async" [network]="network"></app-network-panel>
+  <div class="flex">
+    <button (click)="createNewNetwork()">Create New</button>
   </div>
-  <h1>Stopped</h1>
-  <app-list>
-    <app-list-item *ngFor="let network of stoppedNetworks$ | async">
-      <span>{{network.name}}</span>
-      <button action (click)="startNetwork(network)">Start</button>
-      <button action [routerLink]="['/editor', network.identifier]">Edit</button>
-    </app-list-item>
-  </app-list>
-  <button (click)="createNewNetwork()">Create New</button>
 </main>
